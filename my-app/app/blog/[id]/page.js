@@ -8,21 +8,35 @@ const posts = [
     { id: 3, title: 'Third Blog Post', content: 'This is the content of third post.' },
   ];
 
+  // dynamic metadata
+  export async function generateMetadata({params}){
+    const {id} = await params;
+    const post = posts.find(p => p.id === Number(id)); // Get the ID from URL
+    if(!post){
+      return {
+        title: "Post Not Found",
+        description: "The requested blog post does not exist.",
+      };
+    }
+    return{
+      title : post.title,
+      description : post.content,
+    };
+  }
+
+  // dynamic page route
   export default async function blogPost({params}){
     const {id} = await params;
-  // Get the ID from URL
-  const post = posts.find(p => p.id === Number(id));
-  
-  // If post not found, show message
-  if (!post) {
-    return <h2>Post not found!</h2>;
-  }
-  return(
-    <div>
-        <h1>{post.title}</h1>
-        <p>{post.content}</p>
-        <br />
-        <Link href="/blog">← Back to Blog</Link>
-    </div>
-  )
+    const post = posts.find(p => p.id === Number(id)); // Get the ID from URL
+    if (!post) {
+      return <h2>Post not found!</h2>;
+    }
+    return(
+      <div>
+          <h1>{post.title}</h1>
+          <p>{post.content}</p>
+          <br />
+          <Link href="/blog">← Back to Blog</Link>
+      </div>
+    )
 }
