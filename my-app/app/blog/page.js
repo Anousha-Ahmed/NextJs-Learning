@@ -7,7 +7,7 @@ const posts = [
     {id:3 , title:"Third Blog Post"}
 ]
 
-const blog = () => {
+const Blog = () => {
   return (
     <div>
       <h2>All Blog Posts</h2>
@@ -22,4 +22,4 @@ const blog = () => {
   )
 }
 
-export default blog
+export default Blog
