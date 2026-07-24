@@ -1,4 +1,18 @@
 export default async function ParallelPage() {
+
+    // sequential fetching => slow because loading time increases
+    // const postRes = await fetch(
+    //     "https://jsonplaceholder.typicode.com/posts?_limit=3"
+    //   );
+    //   const posts = await postRes.json();
+    //   const userRes = await fetch(
+    //     "https://jsonplaceholder.typicode.com/users?_limit=3"
+    //   );
+    //   const users = await userRes.json();
+
+
+    
+    // parallel fetcing => fast because loading time decreases
     const [postRes, userRes] = await Promise.all([
       fetch("https://jsonplaceholder.typicode.com/posts?_limit=3"),
       fetch("https://jsonplaceholder.typicode.com/users?_limit=3"),
