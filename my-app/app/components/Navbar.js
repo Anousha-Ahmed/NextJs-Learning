@@ -34,11 +34,12 @@ export default function Navbar() {
           Blog
         </Link>
 
-        <Link
-          href="/server-fetch"
-          style={{ color: "white", textDecoration: "none" }}
-        >
+        <Link href="/server-fetch" style={{ color: "white", textDecoration: "none" }}>
           Server Fetch
+        </Link>
+
+        <Link href="/parallel" style={{ color: "white", textDecoration: "none" }}>
+          Parallel Fetcing
         </Link>
       </div>
 
