@@ -1,4 +1,5 @@
 export default async function ServerFetch(){
+    // throw new Error("Server fetch failed!")
     const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5"); // run on server not browser and give browser ready made HTML that's why called server component
     const posts = await res.json();
 
